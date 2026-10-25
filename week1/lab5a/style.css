@@ -15,6 +15,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
 }
 
 body {
@@ -28,9 +29,29 @@ body {
   line-height: 1.7;
 }
 
+img {
+  max-width: 100%;
+  display: block;
+}
+
 .container {
   width: min(1040px, 92%);
   margin: 0 auto;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -3rem;
+  background: var(--brown-700);
+  color: #fff;
+  padding: 0.75rem 1rem;
+  border-radius: 0 0 0.75rem 0.75rem;
+  z-index: 30;
+}
+
+.skip-link:focus {
+  top: 0;
 }
 
 .site-header {
@@ -56,14 +77,23 @@ body {
   font-weight: 700;
   letter-spacing: 0.08em;
   color: var(--brown-700);
+  text-decoration: none;
 }
 
 .nav-list {
   list-style: none;
   display: flex;
-  gap: 0.9rem;
+  flex-wrap: wrap;
+  gap: 0.6rem;
   padding: 0;
   margin: 0;
+}
+
+.nav-list a {
+  display: inline-block;
+  min-height: 44px;
+  padding: 0.6rem 0.75rem;
+  border-radius: 999px;
 }
 
 a {
@@ -137,7 +167,8 @@ h1 {
   color: #fff;
 }
 
-.section-block {
+.section-block,
+.site-footer {
   padding: 1.6rem 0;
 }
 
@@ -150,9 +181,13 @@ h1 {
   display: flex;
   flex-wrap: wrap;
   gap: 0.7rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .chip {
+  display: inline-block;
   background: rgba(178, 138, 102, 0.18);
   border: 1px solid rgba(143, 104, 70, 0.35);
   color: var(--brown-700);
@@ -180,6 +215,20 @@ h1 {
   font-size: 1.2rem;
 }
 
+.site-footer {
+  border-top: 1px solid rgba(143, 104, 70, 0.2);
+  color: var(--brown-700);
+}
+
+.site-footer p {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+section[id] {
+  scroll-margin-top: 5rem;
+}
+
 @keyframes fade-up {
   from {
     opacity: 0;
@@ -189,6 +238,20 @@ h1 {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .hero-content {
+    animation: none;
+  }
+
+  .btn {
+    transition: none;
   }
 }
 
@@ -205,7 +268,11 @@ h1 {
   }
 
   .nav-list {
-    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  .nav-list a {
+    padding-inline: 0.85rem;
   }
 
   .hero {

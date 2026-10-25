@@ -7,9 +7,11 @@
 		<title>Personal Profile</title>
 	</head>
 	<body>
+		<a class="skip-link" href="#main-content">Skip to content</a>
+
 		<header class="site-header">
 			<div class="container nav-wrap">
-				<p class="brand">Jane Doe</p>
+				<a class="brand" href="#hero" aria-label="Go to home section">Jane Doe</a>
 				<nav aria-label="Main navigation">
 					<ul class="nav-list">
 						<li><a href="#hero">Home</a></li>
@@ -22,7 +24,7 @@
 			</div>
 		</header>
 
-		<main>
+		<main id="main-content">
 			<section id="hero" class="hero">
 				<div class="container hero-content">
 					<p class="eyebrow">Personal Profile</p>
@@ -48,13 +50,13 @@
 			<section id="skills" class="section-block">
 				<div class="container">
 					<h2>Skills</h2>
-					<div class="chip-grid" role="list" aria-label="Skill list">
-						<span class="chip" role="listitem">HTML5</span>
-						<span class="chip" role="listitem">CSS3</span>
-						<span class="chip" role="listitem">Responsive Design</span>
-						<span class="chip" role="listitem">JavaScript Basics</span>
-						<span class="chip" role="listitem">Git &amp; GitHub</span>
-					</div>
+					<ul class="chip-grid" aria-label="Skill list">
+						<li class="chip">HTML5</li>
+						<li class="chip">CSS3</li>
+						<li class="chip">Responsive Design</li>
+						<li class="chip">JavaScript Basics</li>
+						<li class="chip">Git &amp; GitHub</li>
+					</ul>
 				</div>
 			</section>
 
@@ -81,10 +83,16 @@
 			<section id="contact" class="section-block">
 				<div class="container">
 					<h2>Contact</h2>
-					<p>Email: jane.doe@example.com</p>
-					<p>GitHub: github.com/jane-doe-example</p>
+					<p><a href="mailto:jane.doe@example.com">jane.doe@example.com</a></p>
+					<p><a href="https://github.com/jane-doe-example" target="_blank" rel="noreferrer">github.com/jane-doe-example</a></p>
 				</div>
 			</section>
 		</main>
+
+		<footer class="site-footer">
+			<div class="container">
+				<p>© 2026 Jane Doe</p>
+			</div>
+		</footer>
 	</body>
 </html>
